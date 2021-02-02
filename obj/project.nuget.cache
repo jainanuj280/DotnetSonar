@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "zWwfR2OjX+M0LXegjwvo4GYJj08XUNDW6OEpqpAH6/ph6qZLfcXBWKbrcwdNpuEsBqhWjwfwQlC4kHspcnqq2w==",
+  "success": true,
+  "projectFilePath": "D:\\VisualProject\\DotnetCore\\DotnetCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anuj.jain\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
+    "C:\\Users\\anuj.jain\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\anuj.jain\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
