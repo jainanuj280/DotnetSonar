@@ -1,0 +1,9 @@
+U
+QD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.csU
+QD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.csW
+SD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs^
+ZD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.csp
+lD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs\
+XD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.csZ
+VD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs]
+YD:\VisualProject\DotnetCore\obj\Debug\netcoreapp3.1\DotnetCore.RazorTargetAssemblyInfo.cs

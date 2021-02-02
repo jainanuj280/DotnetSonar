@@ -1,0 +1,6 @@
+projectKey=Dotnet
+serverUrl=http://65.1.64.68
+serverVersion=7.5.0.20543
+dashboardUrl=http://65.1.64.68/dashboard?id=Dotnet
+ceTaskId=AXdiCIL-NN0_uIOtajtR
+ceTaskUrl=http://65.1.64.68/api/ce/task?id=AXdiCIL-NN0_uIOtajtR
