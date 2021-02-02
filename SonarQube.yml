@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  parameter-store:
+    token: common
+    sonar_url: sonarurl
 phases: 
   install: 
     runtime-versions: 
