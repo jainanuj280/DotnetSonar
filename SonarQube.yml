@@ -16,4 +16,4 @@ phases:
       #- dotnet sonarscanner begin /k:$sonar_project /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet sonarscanner begin /k:"dotnet2344" /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet build 
-      - dotnet sonarscanner end /d:sonar.login=$token     
+      - dotnet sonarscanner end /d:sonar.login=$token
