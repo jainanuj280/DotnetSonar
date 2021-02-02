@@ -1,0 +1,13 @@
+version: 0.2
+
+phases: 
+  install: 
+    runtime-versions: 
+      dotnet: 3.1 
+  pre_build: 
+    commands: 
+      - echo Restore started on `date`.
+      - dotnet tool install --global dotnet-sonarscanner
+      - dotnet sonarscanner begin /k:"Dotnet" /d:sonar.host.url="http://65.1.64.68" /d:sonar.login="22231e71820ef0c5a2b192342242b29004a761c3"
+      - dotnet build 
+      - dotnet sonarscanner end /d:sonar.login="22231e71820ef0c5a2b192342242b29004a761c3"      
