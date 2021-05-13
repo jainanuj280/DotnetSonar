@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    token: common
+    token: sample
     sonar_url: sonarurl
 phases: 
   install: 
