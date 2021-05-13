@@ -14,6 +14,6 @@ phases:
       - dotnet tool install --global dotnet-sonarscanner
       #- dotnet sonarscanner begin /k:"Dotnet" /d:sonar.host.url="http://65.1.64.68" /d:sonar.login="token"
       #- dotnet sonarscanner begin /k:$sonar_project /d:sonar.host.url=$sonar_url /d:sonar.login=$token
-      - dotnet sonarscanner begin /k:"dotnet2344" /d:sonar.host.url=$sonar_url /d:sonar.login=$token
+      - dotnet sonarscanner begin /k:"sample" /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet build 
       - dotnet sonarscanner end /d:sonar.login=$token
