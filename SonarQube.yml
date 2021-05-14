@@ -19,8 +19,13 @@ phases:
       - dotnet sonarscanner end /d:sonar.login=$token
   build:
     commands:
-      - curl $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
-      - cat result.json
+      - chmod +x sonar-status.sh
+      - status=$./sonar-status.sh $sonar_url $token sample)
       - echo $CODEBUILD_BUILD_SUCCEEDING
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi 
+      - echo $status
+      - if [ $("$status" | tr -d "\"\`'" | cut -f 1 -d " ") = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+      # - curl $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
+      # - cat result.json
+      # - echo $CODEBUILD_BUILD_SUCCEEDING
+      # - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi 
       - echo $CODEBUILD_BUILD_SUCCEEDING          
