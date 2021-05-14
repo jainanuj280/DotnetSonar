@@ -50,7 +50,9 @@ while [  $retry -lt 6 ]; do
 done
 
 # print and return status depending on result
-printf "%s \t %-35s \t $SONAR_HOST/dashboard?id=%s\n" "$analysis_status" "$PROJECT_KEY" "$PROJECT_KEY"
+# printf "%s \t %-35s \t $SONAR_HOST/dashboard?id=%s\n" "$analysis_status" "$PROJECT_KEY" "$PROJECT_KEY"
+printf "%s \t \n" "$analysis_status"
+
 if [ "$analysis_status" != \""OK\"" ]
     then
         exit 1
