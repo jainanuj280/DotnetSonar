@@ -21,13 +21,14 @@ SONAR_HOST=$1
 AUTH_TOKEN=$2 # project key token or user token (see https://docs.sonarqube.org/latest/user-guide/user-token/)
 PROJECT_KEY=$3
 
-GIT_COMMIT=$(git rev-parse HEAD)
+#GIT_COMMIT=$(git rev-parse HEAD)
 
 
 retry=0
 while [  $retry -lt 6 ]; do
     # get latest analysis id to corresponding git commit hash
-    analysis_id=$(curl -s -u "$AUTH_TOKEN": "$SONAR_HOST"/api/project_analyses/search?project="$PROJECT_KEY" | jq '.analyses[] | select(.revision == "'"$GIT_COMMIT"'") | .key' | head -n 1)
+    # analysis_id=$(curl -s -u "$AUTH_TOKEN": "$SONAR_HOST"/api/project_analyses/search?project="$PROJECT_KEY" | jq '.analyses[] | select(.revision == "'"$GIT_COMMIT"'") | .key' | head -n 1)
+    analysis_id=$(curl -s -u "$AUTH_TOKEN": "$SONAR_HOST"/api/project_analyses/search?project="$PROJECT_KEY" | jq '.analyses[] | .key' | head -n 1)
 
     # remove double quotes from analysis id (e.g. "AWv6wb07Y5FuS8wxa-xk" -> AWv6wb07Y5FuS8wxa-xk)
     analysis_id=$(echo "$analysis_id" | tr -d "\"\`'")
