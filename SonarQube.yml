@@ -19,15 +19,6 @@ phases:
       - dotnet sonarscanner end /d:sonar.login=$token
   build:
     commands:
-      - status=$(curl -s -u ef5a097d51cd5e9131b6f221a7e6681ee75292b9: http://65.2.31.119:9000/api/qualitygates/project_status?projectKey=sample | jq '.projectStatus.status')
-      - echo $status
-      # - if [ $status = \"ERROR\" ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
-      # - curl $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
-      
-      - echo $status
-      - if [ $status = \"ERROR\" ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
-      # - cat result.json
-      # - echo $CODEBUILD_BUILD_SUCCEEDING
-      # - if [[ $($(echo "$status" | tr -d "\"\`'" | cut -f 1 -d " ")) = ERROR ]] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
-      # - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi 
-      - echo $CODEBUILD_BUILD_SUCCEEDING          
+      - curl -s -u ef5a097d51cd5e9131b6f221a7e6681ee75292b9: http://65.2.31.119:9000/api/qualitygates/project_status?projectKey=sample >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
