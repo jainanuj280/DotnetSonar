@@ -22,4 +22,4 @@ phases:
       - echo $PATH
       - curl -s -u $token':' $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
       - cat result.json
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING = 0 ;fi
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
