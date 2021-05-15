@@ -16,13 +16,11 @@ phases:
       #- dotnet sonarscanner begin /k:$sonar_project /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet sonarscanner begin /k:"sample" /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet build 
-      - dotnet sonarscanner end /d:sonar.login=$token
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/      
+      - dotnet sonarscanner end /d:sonar.login=$token    
   build:
     commands: 
       - echo $PATH
       - curl -s -u $token':' $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
       - cat result.json
-      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+      - t=$(jq -r '.projectStatus.status' result.json)
+      - if [ $t = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
