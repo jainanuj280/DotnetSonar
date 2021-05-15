@@ -9,9 +9,7 @@ phases:
     runtime-versions: 
       dotnet: 3.1 
   pre_build: 
-    commands: 
-      - apt-get update
-      - apt-get install -y jq    
+    commands:     
       - echo Restore started on `date`.
       - dotnet tool install --global dotnet-sonarscanner
       #- dotnet sonarscanner begin /k:"Dotnet" /d:sonar.host.url="http://65.1.64.68" /d:sonar.login="token"
@@ -19,9 +17,11 @@ phases:
       - dotnet sonarscanner begin /k:"sample" /d:sonar.host.url=$sonar_url /d:sonar.login=$token
       - dotnet build 
       - dotnet sonarscanner end /d:sonar.login=$token
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/      
   build:
     commands: 
-      - export PATH=$PATH:/usr/bin/jq
       - echo $PATH
       - curl -s -u $token':' $sonar_url/api/qualitygates/project_status?projectKey=sample >result.json
       - cat result.json
